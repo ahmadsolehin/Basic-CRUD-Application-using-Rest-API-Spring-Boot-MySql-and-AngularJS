@@ -1,0 +1,7 @@
+7.
+
+INSERT ALL WHEN SAL <= 50000 THEN INTO special_sal VALUES (EMPID , SAL) ELSE INTO sal_history VALUES(EMPID , HIREDATE , SAL) INTO mgr_history VALUES(EMPID , MGR , SAL) SELECT employee_ id EMPID , hire _date HIREDATE , salary SAL , manager_id MGR FROM employees WHERE hire_date < 2010
+
+9
+
+select last_name as ename , salary as salary , department_id as department , ( select ROUND ( avg(salary), 2 ) from employees e_inner where e_inner.department_id = e.department_id ) as dept_avg from employees e where salary > (select ROUND (avg(salary),2 ) from employees e_inner where e_inner.department_id = e.department_id ) order by avg_sal DESC
